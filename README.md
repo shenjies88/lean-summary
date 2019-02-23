@@ -1,6 +1,3 @@
-## Learning Summary
-
-- Programming related learning
-
+## Summarize
 - since 2018.7.1
 
