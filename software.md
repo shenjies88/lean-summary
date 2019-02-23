@@ -1,5 +1,7 @@
 ## 装机软件
 
+- Homebrew
+
 - Google
 
 - Shadowsocks
@@ -36,9 +38,7 @@
   - 自定注释
 
     > https://blog.csdn.net/u014044812/article/details/76577479
-
-- FinalShell
-
+    
 - 有道翻译
 
 - 微信
