@@ -29,3 +29,15 @@
 ## Amdahl定律
 
 - 串行和并行的比例
+
+## 自定义锁
+
+- Lock
+- ReentranLock
+- Condition
+
+## CAS
+
+- 原子操作
+- 不使用锁
+- 使用硬件级别的锁
