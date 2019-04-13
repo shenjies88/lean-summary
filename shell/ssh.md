@@ -13,7 +13,7 @@ ssh-keygen
 - ~/.ssh/id_rsa 私钥
 - ~/.ssh/id_rsa.pub 公钥匙
 
-## 传送密钥至目标主机
+## 传送公钥匙至目标主机
 
 ```shell
 scp -p ~/.ssh/id_rsa.pub 目标机用户名@<目标机host>:目标主机存储的路径

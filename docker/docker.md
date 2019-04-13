@@ -25,7 +25,10 @@
 - **构建镜像**
 
   docker build -t 镜像名:tag 上下文路径
-  
+
+- [数据卷操作](https://blog.51cto.com/sf1314/1977831)
+
+- [容器操作](https://yeasy.gitbooks.io/docker_practice/container/)
 ### Dockerfile指令
 
 - **FROM 基础镜像来源**
@@ -40,17 +43,12 @@
 
   COPY  `构建上下文`需要复制的文件路径或文件夹路径  `镜像内`目标文件夹路径
 
-- **ADD 更高级的复制文件**
+- [ADD更高级的复制文件](https://yeasy.gitbooks.io/docker_practice/image/dockerfile/add.html)
 
-  > https://yeasy.gitbooks.io/docker_practice/image/dockerfile/add.html
+- [CMD启动时的命令](https://yeasy.gitbooks.io/docker_practice/image/dockerfile/cmd.html)
 
-- **CMD 容器启动时的命令**
 
-  > https://yeasy.gitbooks.io/docker_practice/image/dockerfile/cmd.html
-
-- **ENTRYPOINT CMD命令作为参数可以在后面拼接**
-
-  > https://yeasy.gitbooks.io/docker_practice/image/dockerfile/entrypoint.html
+- [ENTRYPOINT CMD命令作为参数可以在后面拼接](https://yeasy.gitbooks.io/docker_practice/image/dockerfile/entrypoint.html)
 
 - **ENV设置环境变量** 
 
@@ -70,12 +68,6 @@
 
   WORKDIR 工作目录
 
-- **HEALTHCHECK健康检查**
-
-  > https://yeasy.gitbooks.io/docker_practice/image/dockerfile/healthcheck.html
-
-### 操作容器
-
-> https://yeasy.gitbooks.io/docker_practice/container/
+- [HEALTHCHECK健康检查](https://yeasy.gitbooks.io/docker_practice/image/dockerfile/healthcheck.html)
 
 ### 

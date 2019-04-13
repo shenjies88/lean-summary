@@ -23,6 +23,10 @@
 
 > https://blog.csdn.net/moakun/article/details/80494253
 
+### HashMap和concurrentHashMap
+
+> <http://www.javastack.cn/article/2018/hashmap-concurrenthashmap-details/>
+
 ### Java泛型原理
 
 > https://blog.csdn.net/briblue/article/details/76736356

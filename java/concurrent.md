@@ -11,6 +11,11 @@
 
 - [关键字讲解](https://www.cnblogs.com/huansky/p/8869888.html)
 
+## 检测死锁
+
+- jps jstack
+- jconsole
+
 ## Synchronizer
 
 - CountDownLatch （阀门）

@@ -1,71 +1,68 @@
-## Java虚拟机
+# Java虚拟机
 
-### How JVM Works
+## 调优总结
 
-> https://www.geeksforgeeks.org/jvm-works-jvm-architecture/
+[总结](<https://www.jianshu.com/p/a2a6a0995fee>)
 
-- 加载系统
-  - 加载-编译出的字节码带有类的信息，所以可以使用反射机制
-    - 加载该类及其父类的完全限定名
-    - .class文件相关联的类、接口、枚举
-    - 修饰符、变量、方法等信息
-  - 链接
-    - 验证字节码是否符合JVM标准
-    - 准备分配内存
-    - 解析在方法区定位引用实体
-  - 初始化-静态变量和静态代码块根据代码定义进行初始化
-    - *Bootstrap class loader*：加载Java核心API  *JAVA_HOME/jre/lib* 直接路径，实现C++、C的本地方法
-    - *Extension class loader：上类的子类，加载扩展目录*JAVA_HOME/jre/lib/ext*，实现于*sun.misc.Launcher$ExtClassLoader* class
-    - *Application class loader*：上类的子类，负责从应用程序路径加载Class
+## Java运行时内存
 
-### 虚拟机运行时的数据区
+- 共享
+  - 方法区-类加载信息、静态变量、常量
+    - 常量池
+  - 堆-实例分配
+    - 对象头
+      - 对象运行在虚拟机时的数据
+    - 实例数据
+    - 对齐填充
+- 非共享
+  - 本地方法栈
+  - 虚拟机栈-局部变量和方法调用栈
+  - 程序计数器-不会溢出
 
-- 程序计数器：选取工作的字节码
-- Java虚拟机栈：线程栈
-- 本地方法栈： 和Java虚拟机栈类似
-- Java堆：存放实例
-- 方法区： 存放加载类的信息
+## 垃圾回收
 
-### 分配内存的两种方式
+- 标记-清除（低效不使用）
+- 标记-复制
+  - Eden和survivor比例 8 : 1
+- 标记-整理
+  - 标记清除，并且规整内存去除碎片
+- 分代回收
+  - 新生代
+    - 标记-复制
+  - 老年代
+    - 标记-整理
+- 安全点，安全区
+  - 为了保证GC时对象固定，需要暂停线程
+  - GC时对象进入安全点挂起
+  - 进入到安全区，引用不回改变，可以直接GC
 
-- 常量池中是否有类的信息，没有则先加载
-- 指针碰撞：由一个指针对‘‘空余‘’和“占有“进行分界，如果分配了内存，就把空余的部分缩小一些
-- 空闲列表：维护一个列表，记录‘’‘空余‘’和“占有”的空间
-- 虚拟机将分配到的内存空间都初始化为0值，所以对象的成员初始化为0
+## 类加载机制
 
-### 垃圾回收详解
-
-> https://www.jianshu.com/p/2e36bbf15b80
-
-### Class文件的字节码结构
-
-> https://blog.csdn.net/ns_code/article/details/17675609
-
-### 虚拟机类加载机制
-
-- 类的生命周期 加载->验证->准备->解析->初始化->使用->卸载（类加载的过程）
-  - 验证->准备->解析 属于连接阶段  解析的行为不一定按部就班的进行
-  - 何时进行初始化（主动引用）
-    1. 实例化对象时、读取或设计一个类的静态字段时（被final表示已经在编译器把值放入常量池，不算）、调用类的静态方法时
-    2. 对类进行反射调用时，该类未初始化
-    3. 初始化一个类时，如果该类的父类未进行初始化，先对父类进行初始化
-    4. 虚拟机启东时间，含main方法的类，会初始化该类
-    5. JDK1.7，如果一个java.lang.invoke.MethodHandle实例最后的解析结果是REF_getStatic、REF_putStatic、REF_invokeStatic的方法句柄，并且这个方法句柄所对应的类没有进行过初始化，则需要先触发其初始化
+- 步骤
   - 加载
-    1. 根据类的全限定名获的该类的二进制字节流
-    2. 字节流代表的静态存储结构转化为方法区运行时的数据结构
-    3. 在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口
-  - 验证
-    1. 字节流是否符合class文件规范
-    2. 元数据语意是否符合Java语言规范
-    3. 代码意图不会对虚拟机造成伤害
-    4. 验证符号引用，通过全限定名找到类，符合方法和字段的描述
-  - 准备
-    - 类分配内存和类变量设置初值（非常量并不赋值）
-  - 解析
+  - 链接
+    - 验证
+    - 准备
+    - 解析
   - 初始化
+  - 使用
+  - 卸载
+- 解析和使用阶段不确定，其他阶段按顺序"开始"（即一个阶段开始不一定等前一阶段完成）
+- 类初始化的触发条件（类未初始化）
+  1. new关键字
+  2. 调用或者设置静态字段，或调用静态方法
+  3. 反射
+  4. 父类未初始化
+  5. main方法类
 
-### 重载的原理
+## 栈贞
+
+- 操作数栈
+- 局部变量表
+- 动态链接
+- 返回地址
+
+## 重载的原理
 
 - 示例代码
 
@@ -110,4 +107,101 @@ hello,guy!
 - 原理
   - 我们把`Human`称为变量的静态类型， `Man`称为变量的实际类型，静态类型的变化在编译期可知，实际类型的变化为运行期可知
   - 重载是通过方法的参数`静态类型`和`参数数量`在编译期决定使用那个重载方法，把该方法的符号引用写到`invokevirtual`字节码指令中
+  - Human引用，子类实例
 
+## 重写的原理
+
+- 实例代码
+
+```java
+public class Temp {
+
+    static abstract class Human {
+        abstract void sayHello();
+    }
+
+    static class Man extends Human {
+
+        @Override
+        void sayHello() {
+            System.out.println("man");
+        }
+    }
+
+    static class Woman extends Human {
+
+        @Override
+        void sayHello() {
+            System.out.println("woman");
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Human man = new Man();
+        Human woman = new Woman();
+        man.sayHello();
+        woman.sayHello();
+
+        man = new Woman();
+        man.sayHello();
+
+    }
+
+}
+```
+
+- 输出
+
+  ```
+  man
+  woman
+  woman
+  ```
+
+- 关键字节码
+
+  ```
+   				 0: new           #2                  // class cn/com/java/Temp$Man
+           3: dup
+           4: invokespecial #3                  // Method cn/com/java/Temp$Man."<init>":()V
+           7: astore_1
+           8: new           #4                  // class cn/com/java/Temp$Woman
+          11: dup
+          12: invokespecial #5                  // Method cn/com/java/Temp$Woman."<init>":()V
+          15: astore_2
+          16: aload_1
+          17: invokevirtual #6                  // Method cn/com/java/Temp$Human.sayHello:()V
+          20: aload_2
+          21: invokevirtual #6                  // Method cn/com/java/Temp$Human.sayHello:()V
+          24: new           #4                  // class cn/com/java/Temp$Woman
+          27: dup
+          28: invokespecial #5                  // Method cn/com/java/Temp$Woman."<init>":()V
+          31: astore_1
+          32: aload_1
+          33: invokevirtual #6                  // Method cn/com/java/Temp$Human.sayHello:()V
+          36: return
+  ```
+
+- 原理
+
+  - `new` 指令在堆中分配内存，存入操作数栈顶
+  - `dup`复制栈顶元素，存入操作数栈顶
+  - `invokespecial`调用`init`初始化并把操作数栈顶弹出
+  - `astore_N`存入局部变量表
+  - `aload_N`压入操作数栈中
+  - `invokevirtual`调用会检查栈顶的引用，寻找是否有该方法，所以在该指令调用前，会把引用压入栈顶
+
+## 执行字节码引擎
+
+- 编译成本地代码
+- 解释执行
+- 使用栈指令集
+  - 优点：跨平台，访问内存，不依赖于硬件寄存器
+  - 缺点：访问内存（不如访问寄存器快）
+
+## 热点代码
+
+- 方法计数器
+- 回边计数器（用于探测流程控制指令）
+- 满足JIT要求后，编译的同时继续用解释方式执行，到下次时判断到已拥有已编译的代码使用编译代码
