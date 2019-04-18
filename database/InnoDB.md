@@ -48,3 +48,11 @@
 - 慢查询日志
 - 查询日志
 
+## [索引原理1](<https://juejin.im/entry/5b178dc5e51d4506d47de448>)
+
+## [索引原理2](<https://blog.csdn.net/tongdanping/article/details/79878302>)
+
+## [隔离级别](<http://blog.chinaunix.net/uid-14010457-id-3956842.html>)
+
+## [SQL优化](<https://zhuanlan.zhihu.com/p/48385127>)
+
