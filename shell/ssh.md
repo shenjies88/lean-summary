@@ -39,4 +39,5 @@ IdentityFile ~/.ssh/id_rsa
 ssh 别名
 ```
 
+- 传送公钥
 - 即可马上登陆

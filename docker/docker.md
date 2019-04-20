@@ -26,6 +26,14 @@
 
   docker build -t 镜像名:tag 上下文路径
 
+- **清除无用的东西**
+
+  - docker sys prune
+    - 删除none镜像
+    - 删除停止的容器
+    - 删除无用的网络
+    - 删除无用的卷积
+
 - [数据卷操作](https://blog.51cto.com/sf1314/1977831)
 
 - [容器操作](https://yeasy.gitbooks.io/docker_practice/container/)
