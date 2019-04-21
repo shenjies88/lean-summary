@@ -61,3 +61,5 @@
 
 ## [MySQL原理](<https://dbaplus.cn/news-155-1531-1.html>)
 
+## [Explain详解](https://www.cnblogs.com/gomysql/p/3720123.html)
+
