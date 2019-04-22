@@ -40,20 +40,6 @@ create table test(
   select no_index from test where name = 'sj‘;
   ```
 
-- 最左列前缀匹配-(不适用于数字，联合索引即使是最左无效，除非是覆盖索引）
-
-  ```mysql
-  select no_index from test where name like 'abc%';
-  ```
-
-  注意不能匹配这种`%abc`
-
-- 最左列范围匹配（联合索引即使是最左也无效，除非是覆盖索引）
-
-  ```mysql
-  select no_index from test where name between 'sj' and 'cjy'
-  ```
-
 - 最左原则
 
   - 有索引(a,b,c)
@@ -63,11 +49,14 @@ create table test(
 
 - 只访问索引列，即`覆盖索引`
 
-- order by 的情况
+- `order by` 的情况
 
-  - 直接order by 又不是`覆盖索引`的话，会触发 using filesort
-  - 单索引 (a) (b) where a order by b 会触发 using filesort
-  - 联合索引(a,b) 可以 where a order by b 可行
+  - 直接`order by` 又不是`覆盖索引`的话，会触发 `using filesort`
+  - `where` 内没有触发索引，会触发 `using filesort`
+  - 单索引 `where`字句内没有触发索引，又不是`覆盖索引的`，`order by`子句使用就会触发`using filesort`
+  - 联合索引`(a,b) where a order by b` 可行
+
+- `唯一联合索引`需要满足全部条件才会触发
 
 ## 前缀索引计算公式
 
@@ -83,4 +72,12 @@ create table test(
   select count(distinct left('目标列'，'前缀个数')/count(*) from '目标表'
   ```
 
-  
+
+## 聚集索引和非聚集索引
+
+- 聚集索引：主索引和数据以及二级索引存储在叶子节点（主索引最好为顺序索引）
+- 非聚集索引：主索引和二级索引都是对标记行的随机值
+
+## 查询优化
+
+- 将一个大的连表查询分解成多个单个的单表查询

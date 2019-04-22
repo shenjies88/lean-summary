@@ -48,18 +48,3 @@
 - 慢查询日志
 - 查询日志
 
-## [索引原理](<https://blog.csdn.net/tongdanping/article/details/79878302>)
-
-## 索引 order by
-
-- https://www.cnblogs.com/wangxusummer/p/5329813.html
-- <https://www.cnblogs.com/morewindows0/p/9225638.html>
-
-## [隔离级别](<http://blog.chinaunix.net/uid-14010457-id-3956842.html>)
-
-## [SQL优化](<https://zhuanlan.zhihu.com/p/48385127>)
-
-## [MySQL原理](<https://dbaplus.cn/news-155-1531-1.html>)
-
-## [Explain详解](https://www.cnblogs.com/gomysql/p/3720123.html)
-
