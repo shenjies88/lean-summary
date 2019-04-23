@@ -1,5 +1,5 @@
 #!/bin/bash
-docker run -d --name d-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+docker run -d --name rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 # --name 容器名
 # -d 后台运行
 # -p 端口映射，本地：容器内

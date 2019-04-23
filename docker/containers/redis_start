@@ -1,5 +1,5 @@
 #!/bin/sh
-docker run --name d-redis -p 6379:6379 -d redis:latest
+docker run --name redis -p 6379:6379 -d redis:latest
 # --name 容器名
 # -p 端口映射，左侧本地，右侧docker内
 # -d 后台运行

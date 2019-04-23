@@ -182,3 +182,41 @@ SubType.prototype.sayAge = function() {
 ```
 
 ## 函数表达式
+
+### 闭包
+
+```javascript
+var name = 'the window';
+
+var object = {
+  name : 'my object',
+  
+  getNameFunc : function() {
+    return function() {
+      return this.name;
+    }
+  }
+}
+
+alert(object.getNameFunc); //the window 非严格模式下，匿名函数访问不到getNameFunc函数作用域
+```
+
+```javascript
+var name = 'the window';
+
+var object = {
+  name : 'my object',
+  
+  getNameFunc : function() {
+    var that = this;
+    return function() {
+      return that.name;
+    }
+  }
+}
+
+alert(object.getNameFunc); //my object
+```
+
+
+

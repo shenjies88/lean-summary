@@ -1,6 +1,7 @@
 #!/bin/sh
-docker run --name d-mysql -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql:5.7
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -v mysql_data:/var/lib/mysql -p 3306:3306 -d mysql:5.7
 # --name 容器名
 # -e 环境变量
 # -p 端口映射，左侧本地，右侧docker内
 # -d 后台运行
+# -v 数据挂载 左侧本地，右侧docker内
