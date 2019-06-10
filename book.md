@@ -17,7 +17,7 @@
 - 《Spring JPA 从入门到精通》
 - 《Spring揭秘》
 
-### 语言
+### 后端
 
 - 《Java编程思想》
 - 《精通正则表达式》
@@ -26,7 +26,12 @@
 - 《Shell编程从入门到精通》
 - 《Java并发编程实战》
 - 《高性能Java》
+
+### 前端
+
 - 《Java Script高级程序设计》
+- 《Vue.js实战》
+- 《CSS权威指南》
 
 ### 计算机系统
 
@@ -44,6 +49,7 @@
 - GeeksForGeeks DataBase
 - 《MySQL技术内部：InnoDB引擎》
 - 《数据库概念》
+- 《高性能MySQL》
 
 ### 计算机网络
 

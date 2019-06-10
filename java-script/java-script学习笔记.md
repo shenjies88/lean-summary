@@ -220,3 +220,4 @@ alert(object.getNameFunc); //my object
 
 
 
+## [立即函数表达式](https://www.cnblogs.com/cnfxx/p/7337889.html)

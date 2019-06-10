@@ -31,3 +31,7 @@
 - gitLab工作流
 
   - > https://blog.csdn.net/qq_19558705/article/details/50716166
+  
+- 不再跟文件，并在远程仓库移除
+
+  > - https://blog.csdn.net/chenxu6/article/details/50542295
