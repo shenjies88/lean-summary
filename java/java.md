@@ -34,3 +34,11 @@
 - [使用教程](https://lw900925.github.io/java/java8-optional.html)
 
 ### [Java精通](<https://www.zhihu.com/question/28903757/answer/575333243>)
+
+### Java对象占用内存
+
+- 基本类型即数据要求的字节数
+- 对象
+  - 对象头+实例数据+空白填充
+  - 对象内存是8的倍数
+  - [实例分析](https://juejin.im/post/5d0fa403f265da1bb67a2335)

@@ -56,3 +56,19 @@
 - 实际返回的数据不属于该索引的范围，也会触发表锁
 - [详解](https://www.cnblogs.com/crazylqy/p/7821481.html)
 
+## 备份
+
+### 参数
+
+- `innodb_data_home_dir`共享表空间
+-  `innodb_data_file_path` 具体共享表空间文件大小及目录
+- `innodb_log_group_home_dir` 日志目录
+- `innodb_file_per_table` 每表一文件
+
+### 备份文件
+
+- 备份`innodb_data_home_dir`和`innodb_data_file_path`目录下的文件和`datadir`下的.frm文件
+- 如果设置了`innodb_file_per_table`，还需要备份`datadir`下的.idb
+
+
+
