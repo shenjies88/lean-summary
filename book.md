@@ -12,8 +12,7 @@
 
 - 《Docker技术入门与实战》
 - 《Maven实战》
-- 《Spring JPA 从入门到精通》
-- 《Spring揭秘》
+- 《五分钟玩转kubernetes》
 
 ### 后端
 
@@ -24,6 +23,8 @@
 - 《Shell编程从入门到精通》
 - 《Java并发编程实战》
 - 《高性能Java》
+- 《Spring JPA 从入门到精通》
+- 《Spring揭秘》
 
 ### 前端
 

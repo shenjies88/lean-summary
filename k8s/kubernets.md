@@ -145,4 +145,21 @@ spec:
 - Pod消亡，Volume还存在
 - Host崩溃，hostPath也消亡
 
-### Storage Provider
+## Secret
+
+### 创建Secret
+
+```sh
+kubectl create secret generic mysecret --from-literal=username=admin --from-literal=password=123456
+```
+
+文件中的铭感数据必须通过base64编码
+
+### Pod中的使用，卷积文件到Pod内或者以环境变量的形式
+
+- 卷积文件支持动态更新
+- 环境变量不支持动态更新
+
+### Configmap
+
+- 功能同上，明文形式存在
