@@ -23,7 +23,7 @@ server {
             add_header Cache-Control no-store;
             add_header Pragma no-cache;
             proxy_pass http://192.168.1.217/; 
-            root   $前端路径;
+            root   $静态路径;
             index  index.html;
 
             if (!-e $request_filename) {
@@ -52,7 +52,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header REMOTE-HOST $remote_addr;
-        root  $前端路径;  
+        root  $静态路径;  
         index  index.html;
     }
 }
