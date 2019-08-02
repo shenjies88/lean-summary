@@ -22,7 +22,7 @@ server {
             proxy_set_header REMOTE-HOST $remote_addr;
             add_header Cache-Control no-store;
             add_header Pragma no-cache;
-            proxy_pass http://192.168.1.217/; 
+            proxy_pass $后端ip+端口或域名; 
             root   $静态路径;
             index  index.html;
 
@@ -32,6 +32,11 @@ server {
            } 
 
     }
+  
+    location /api {
+      rewrite  /api/(.*)  /$1  break;
+      proxy_pass $后端ip+端口或域名;
+  }
  
 }
 
@@ -55,6 +60,11 @@ server {
         root  $静态路径;  
         index  index.html;
     }
+  
+      location /api {
+    		rewrite  /api/(.*)  /$1  break;
+     	  proxy_pass $后端ip+端口或域名;
+  }
 }
 ```
 
