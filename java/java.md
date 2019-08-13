@@ -24,11 +24,17 @@
 ### equals和hashCode分析
 
 - 覆盖equals时要覆盖hashCode
-- 自反性。对于任何非null的引用值x，x.equals(x)应返回true。
-- 对称性。对于任何非null的引用值x与y，当且仅当：y.equals(x)返回true时，x.equals(y)才返回true。
-- 传递性。对于任何非null的引用值x、y与z，如果y.equals(x)返回true，y.equals(z)返回true，那么x.equals(z)也应返回true。
-- 一致性。对于任何非null的引用值x与y，假设对象上equals比较中的信息没有被修改，则多次调用x.equals(y)始终返回true或者始终返回false。
-- 对于任何非空引用值x，x.equal(null)应返回false。
+- 自反性。对于任何非null的引用值x，x.equals(x)应返回true
+  - 示例：List.contains
+- 对称性。对于任何非null的引用值x与y，当且仅当：y.equals(x)返回true时，x.equals(y)才返回true
+  - 示例：自定义类重写了equals方法，但JDK内的类的equals方法无法判断和自定义类相等
+- 传递性。对于任何非null的引用值x、y与z，如果y.equals(x)返回true，y.equals(z)返回true，那么x.equals(z)也应返回true
+  - 继承父类扩展属性时，兼容对称性
+  - 组合优于继承，将父类作为成员传入
+- 一致性。对于任何非null的引用值x与y，假设对象上equals比较中的信息没有被修改，则多次调用x.equals(y)始终返回true或者始终返回false
+  - 没必要判断null
+  - 直接判断instanceof即可
+- 对于任何非空引用值x，x.equal(null)应返回false
 
 ### 类加载器
 
