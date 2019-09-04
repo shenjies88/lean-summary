@@ -1,6 +1,7 @@
 ## 关键命令
 
 - ping
+  - 发送ICMP回显报文
 - netstat
 - traceroute
 - host
