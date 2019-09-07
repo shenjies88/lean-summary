@@ -3,9 +3,14 @@
 - ping
   - 发送ICMP回显报文
 - netstat
+  - 查看内核中的网络状态
 - traceroute
+  - 发送ICMP探测报文，来获得链路上的路由地址
+- tcpdump
+  - 
 - host
 - dig
+- nslookup
 
 ## 概述
 
