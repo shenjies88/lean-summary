@@ -50,6 +50,7 @@
 - 《计算机网络》（中）谢希仁
 - 《计算机网络基础》（中）谢希仁
 - 《TCIP-IP详解卷1-协议》（美） W·Richard Stevens
+- 《Web性能权威指南》（加）Ilya Grigorik
 
 ### 计算机系统
 
