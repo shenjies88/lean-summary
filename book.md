@@ -20,6 +20,7 @@
 - 《Docker技术入门与实战》（中） 杨保华 / 戴王剑 / 曹亚仑
 - 《Maven实战》（中）许晓斌
 - 《五分钟玩转kubernetes》（中）loudMan
+- 《Kubernetes权威指南》
 
 ### 后端
 
