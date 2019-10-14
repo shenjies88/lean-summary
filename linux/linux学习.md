@@ -52,15 +52,24 @@
 
 ## Shell
 
-### shell语言特性
+### 理论
 
 - 解释性语言
-
-### 脚本无法改变环境变量
 
 - 因为shell脚本在执行命令时是通过`fork()`系统调用创建子进程去执行
 - 子进程无法改变父进程的环境变量
 - 如果不希望脚本创建子进程，可以使用 `source`命令+可执行文件
+
+### 接受参数
+
+```shell
+#!/bin/bash
+echo "当前脚本名称为$0"
+echo "总共有$#个参数，分别是$*。"
+echo "第 1 个参数为$1，第 5 个为$5。"
+```
+
+
 
 ### if
 
@@ -105,16 +114,76 @@ echo "$GRADE is Fail"
 fi
 ```
 
-## sed
 
-### 编辑文本流
+
+### for循环
+
+```shell
+#!/bin/bash
+HLIST=$(cat ~/ipadds.txt)
+for IP in $HLIST
+do
+ping -c 3 -i 0.2 -W 3 $IP &> /dev/null 
+if [ $? -eq 0 ] ; then
+echo "Host $IP is On-line." else
+echo "Host $IP is Off-line." fi
+done
+```
+
+
+
+### while
+
+```shell
+#!/bin/bash
+PRICE=`expr $RANDOM % 1000`
+TIMES=0
+echo "商品价格在0-999之间，猜猜看是多少?"
+while true
+do
+read -p "输入价格: " INT
+let TIMES++
+if [ $INT -eq $PRICE ] ; then
+echo "答对了, 实际价格是 $PRICE"
+echo "总共猜了 $TIMES 次"
+exit 0
+elif [ $INT -gt $PRICE ] ; then
+echo "太高了!"
+else
+echo "太低了!"
+fi
+done
+```
+
+### case
+
+```shell
+#!/bin/bash
+read -p "请输入一个字符，并按 Enter 键确认:" KEY 
+case "$KEY" in
+[a-z]|[A-Z])
+echo "您输入的是 字母。"
+;;
+[0-9])
+echo "您输入的是 数字。"
+;;
+*)
+echo "您输入的是 空格、功能键或其他控制字符。" 
+esac
+```
+
+
+
+### sed
+
+编辑文本流
 
 - 不会修改原文件，如需修改 > 重定向
 - `-e` 根据表达式操作
 - `-n` 显示操作的行
 - `-f` 执行脚本
 
-### 实例
+实例
 
 ```shell
   sed -n -e '1，5d' file
@@ -140,15 +209,15 @@ sed -e '/BEGIN/,/END/p' file
 
 - 打印正则`BEGIN`到`END`范围的文本，匹配了`BEGIN`但是没有匹配`END`一样会输出，但是没有匹配`BEGIN`则不会输出
 
-## awk
+### awk
 
-### 过滤输出
+过滤输出
 
 - 不会修改原文件
 - `-F`重设分隔符，默认是`空格`，可以设置为`正则`
 - `-f`执行脚本
 
-### 实例
+实例
 
 ```shell
 awk '{print $1 $3}' file
@@ -212,3 +281,14 @@ awk '{print "3+2=" 3+2}'
   - NR已经读出的记录
   - FNR当前记录数
   - NF当前处理记录的字段数
+
+## 定时任务
+
+- `at`一次性计划
+- `crond`周期性计划
+  - `分`，`时`，`日`，`月`，`星期`
+  - 同一值用`,`分隔
+  - 同一值用`-`表示连续
+  - `*/2`每2执行一次
+  - `分`必须有值
+  - `日`和`星期`不能同时使用
