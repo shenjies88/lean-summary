@@ -35,3 +35,30 @@
 - 不再跟文件，并在远程仓库移除
 
   > - https://blog.csdn.net/chenxu6/article/details/50542295
+
+## Gitlab-Runner
+
+```yml
+stages:
+  - package
+  - restart
+
+cache:
+  paths:
+    - 需缓存的发布路径
+
+dev-package:
+  stage: package
+  script:
+    - 编译脚本
+  only:
+    - dev
+
+dev-restart:
+  stage: restart
+  script:
+    - 重启服务
+  only:
+    - dev
+```
+
