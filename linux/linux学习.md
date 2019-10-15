@@ -60,7 +60,7 @@
 - 子进程无法改变父进程的环境变量
 - 如果不希望脚本创建子进程，可以使用 `source`命令+可执行文件
 
-### 接受参数
+### 实践
 
 ```shell
 #!/bin/bash
@@ -71,9 +71,9 @@ echo "第 1 个参数为$1，第 5 个为$5。"
 
 
 
-### if
+if
 
-#### 单条件判断
+单条件判断
 
 ```shell
 #!/bin/bash
@@ -85,7 +85,7 @@ mkdir -p $DIR fi
 
 
 
-#### 分支判断
+分支判断
 
 ```shell
 #!/bin/bash
@@ -100,7 +100,7 @@ fi
 
 
 
-#### 多分支判断
+多分支判断
 
 ```shell
 #!/bin/bash
@@ -116,7 +116,7 @@ fi
 
 
 
-### for循环
+for循环
 
 ```shell
 #!/bin/bash
@@ -132,7 +132,7 @@ done
 
 
 
-### while
+while
 
 ```shell
 #!/bin/bash
@@ -155,7 +155,7 @@ fi
 done
 ```
 
-### case
+case
 
 ```shell
 #!/bin/bash
@@ -174,7 +174,7 @@ esac
 
 
 
-### sed
+sed
 
 编辑文本流
 
@@ -209,7 +209,7 @@ sed -e '/BEGIN/,/END/p' file
 
 - 打印正则`BEGIN`到`END`范围的文本，匹配了`BEGIN`但是没有匹配`END`一样会输出，但是没有匹配`BEGIN`则不会输出
 
-### awk
+awk
 
 过滤输出
 
