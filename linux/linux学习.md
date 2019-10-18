@@ -394,3 +394,43 @@ RAID10
 - 格式化
 - 挂载
 - 写入配置文件
+
+删除逻辑卷
+
+- 卸载挂载点
+- 删除配置文件
+- 删除逻辑设备
+- 删除卷组
+- 删除物理卷设备
+
+## 防火墙
+
+配置工具
+
+- `iptables`
+  - 驱动`netfilter`
+- `firewalld`
+  - 驱动`nftables`
+
+规则链
+
+- `PREROUTING`进行路由选择前处理数据包
+- `INPUT`处理流入的数据包
+- `OUTPUT`处理流出的数据包
+- `FORWARD`处理转发的数据包
+- `POSTROUTING`在进行路由选择后处理数据包
+
+动作处理
+
+- `ACCEPT`允许流量通过
+- `REJECT`拒绝流量通过（拒绝并响应）
+- `LOG`记录日志信息
+- `DROP`拒绝流量通过（拒绝并不响应）
+
+保存防火墙配置
+
+```sh
+service iptables save
+```
+
+TCP Wrappers 用于控制服务是否可以访问
