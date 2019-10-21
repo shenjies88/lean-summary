@@ -66,3 +66,4 @@
 - 《UNIX编程实践教程》（美）Bruce Molay
 - 《简约之美：软件设计之道》（美）Max Kanat-Alexander
 - 《编译器设计》（英）库伯 
+- 《Linux就该这么学》（中）刘瑞
