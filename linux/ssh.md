@@ -6,7 +6,7 @@ ssh -p 端口 目标机用户名@目标机host
 
 ## 生成密钥
 
-```shell
+```sh
 ssh-keygen
 ```
 
@@ -15,13 +15,9 @@ ssh-keygen
 
 ## 传送公钥匙至目标主机
 
-```shell
-scp -p ~/.ssh/id_rsa.pub 目标机用户名@<目标机host>:目标主机存储的路径
+```sh
+ssh-copy-id 目标主机ip
 ```
-
-- 将该密钥拼接至authorized_keys后面
-- cat id_rsa.pub >> authorized_keys
-- 即可免密登陆
 
 ## 配置文件
 
@@ -38,6 +34,3 @@ IdentityFile ~/.ssh/id_rsa
 ```shell
 ssh 别名
 ```
-
-- 传送公钥
-- 即可马上登陆
