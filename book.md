@@ -33,6 +33,7 @@
 - 《高性能Java》（美）charlie hunt
 - 《Spring JPA 从入门到精通》（中）张振华
 - 《Spring揭秘》（中）王福强　
+- 《Java开发手册》（中）杨冠宝
 
 ### 前端
 
