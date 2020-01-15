@@ -1,1 +1,0 @@
-/Users/shenjies88/.zshrc
