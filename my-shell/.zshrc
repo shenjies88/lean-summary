@@ -1,4 +1,4 @@
-alias proxy='export all_proxy=socks5://127.0.0.1:1080'
+alias proxy='export all_proxy=socks5://127.0.0.1:1086'
 alias unproxy='unset all_proxy'
 alias list-myshell='bash ~/Desktop/summary/my-shell/list-myshell.sh'
 alias clone-project='bash ~/Desktop/summary/my-shell/clone-project.sh'
