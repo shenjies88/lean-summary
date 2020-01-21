@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+  drone:
+    image: drone/drone:1
+    container_name: drone
+    ports: 
+      - 80:80
+      - 443:443
+    restart: always
+    volumes: 
+    - ~/docker-volume/drone/data:/data
+    environment:
+      DRONE_AGENTS_ENABLED: 'true'
+      # 这是要跳转到gitea授权页面到ip地址
+      DRONE_GOGS_SERVER: http://172.18.0.3:3000
+      DRONE_RPC_SECRET: bea26a2221fd8090ea38720fc445eca6 
+      # 这是dron容器所在宿主机的ip
+      DRONE_SERVER_HOST: 192.168.0.103:80
+      DRONE_SERVER_PROTO: http
+
+networks:
+  default:
+    external:
+      name: bridge

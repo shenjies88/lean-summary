@@ -1,0 +1,11 @@
+version: '3'
+services:
+
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    ports:
+      - '10022:22'
+      - '10080:3000'
+    volumes:
+       - ~/docker-volume/gitea/data:/data

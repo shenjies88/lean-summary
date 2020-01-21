@@ -1,0 +1,12 @@
+version: '3'
+services:
+
+  gogs:
+    image: gogs/gogs
+    container_name: gogs
+    ports: 
+      - '10080:3000'
+      - '10022:22'
+    restart: always
+    volumes: 
+    - ~/docker-volume/gogs/data:/data
