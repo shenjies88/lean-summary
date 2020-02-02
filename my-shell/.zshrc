@@ -6,3 +6,5 @@ alias update-study='bash ~/Desktop/summary/my-shell/update-study.sh'
 alias nacos-start='sh ~/Desktop/nacos/bin/startup.sh -m standalone'
 alias nacos-stop='sh ~/Desktop/nacos/bin/shutdown.sh'
 alias ll='ls -la'
+
+export DRONE_LOG_FILE=~/.drone-runner-exec/log.txt
