@@ -1,2 +1,2 @@
 #!/bin/bash
-ls ~/Desktop/summary/my-shell | sed 's/\.sh//g'
+ls `echo \`dirname $0\`` | sed 's/\.sh//g'
