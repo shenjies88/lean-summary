@@ -1,7 +1,16 @@
-#!/bin/sh
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -v mysql_data:/var/lib/mysql -p 3306:3306 -d mysql:5.7 --log-bin=mysql-bin --server-id=1
-# --name 容器名
-# -e 环境变量
-# -p 端口映射，左侧本地，右侧docker内
-# -d 后台运行
-# -v 数据挂载 左侧本地，右侧docker内
+docker run \
+  -v drone_data:/data \
+  --env=DRONE_AGENTS_ENABLED=true \
+  --env=DRONE_GITLAB_SERVER=http://10.168.1.3:7021 \
+  --env=DRONE_GITLAB_CLIENT_ID=096953129afbab48aa983b5fcc0fcf3d81bda71c56e277635ed0733f78bf774e \
+  --env=DRONE_GITLAB_CLIENT_SECRET=ecc406e7da2c5935c673407444321a3f4712fe003013cf1f2af7c2db7afe2da8 \
+  --env=DRONE_RPC_SECRET=ecbd6ce84f5fd5ffd7d77c968a11d370 \
+  --env=DRONE_SERVER_HOST=10.168.1.2:10080 \
+  --env=DRONE_SERVER_PROTO=http \
+  --env=DRONE_USER_CREATE=username:shenjie,admin:true \
+  --publish=10080:80 \
+  --publish=10443:443 \
+  --restart=unless-stopped \
+  --detach=true \
+  --name=drone \
+  drone/drone:1
