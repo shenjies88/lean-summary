@@ -3,12 +3,18 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/shenjies88/.oh-my-zsh"
+export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
+# 代码高亮
+exportCLICOLOR=1
+exportLSCOLORS=gxfxcxdxbxegedabagacad
+exportPS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
+exportTERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +74,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,7 +107,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias list-myshell='bash ~/Desktop/summary-practice/my-shell/list-myshell.sh'
-alias clone-project='bash ~/Desktop/summary-practice/my-shell/clone-project.sh'
-alias update-study='bash ~/Desktop/summary-practice/my-shell/update-study.sh'
+export SHELL_DIR="~/Desktop/study-practice"
+alias list-myshell="bash ${SHELL_DIR}/my-shell/list-myshell.sh"
+alias clone-project="bash ${SHELL_DIR}/my-shell/clone-project.sh"
+alias update-study="bash ${SHELL_DIR}/my-shell/update-study.sh"
 alias ll='ls -la'
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
