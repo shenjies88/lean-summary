@@ -1,4 +1,5 @@
 #!/bin/bash
+WORK_PROJECT="~/Desktop/work/project"
 read -p "输入项目地址:" URL
-cd ~/Desktop/work/project
+cd `echo ${WORK_PROJECT}`
 git clone $URL
