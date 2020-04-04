@@ -2,7 +2,7 @@
 read -p "请输入提交信息: " MSG
 cd `dirname $0`
 cp ~/.zshrc ./.zshrc
-if [ $? -e 0 ]; then
+if [ $? -eq 0 ]; then
 echo "复制.zshrc成功"
 fi
 cd ${SHELL_DIR}
