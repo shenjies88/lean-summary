@@ -107,7 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export SHELL_DIR="~/Desktop/study-practice"
+export SHELL_DIR=~/Desktop/study-practice
+export WORK_PROJECT=~/Desktop/work/project
 alias list-myshell="bash ${SHELL_DIR}/my-shell/list-myshell.sh"
 alias clone-project="bash ${SHELL_DIR}/my-shell/clone-project.sh"
 alias update-study="bash ${SHELL_DIR}/my-shell/update-study.sh"
