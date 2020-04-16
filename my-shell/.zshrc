@@ -5,10 +5,10 @@
 export ZSH="/Users/shenjies88/.oh-my-zsh"
 export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 # 代码高亮
-exportCLICOLOR=1
-exportLSCOLORS=gxfxcxdxbxegedabagacad
-exportPS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
-exportTERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
+export TERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# 我的自定义
 export SHELL_DIR=~/Desktop/study-practice
 export WORK_PROJECT=~/Desktop/work/project
 alias list-myshell="bash ${SHELL_DIR}/my-shell/list-myshell.sh"
@@ -114,3 +116,7 @@ alias clone-project="bash ${SHELL_DIR}/my-shell/clone-project.sh"
 alias update-study="bash ${SHELL_DIR}/my-shell/update-study.sh"
 alias ll='ls -la'
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# iTerm2
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+source ~/.iterm2_shell_integration.zsh
