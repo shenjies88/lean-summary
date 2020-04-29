@@ -16,7 +16,7 @@ ssh-keygen
 ## 传送公钥匙至目标主机
 
 ```sh
-ssh-copy-id 目标主机ip
+ 目标主机ip
 ```
 
 ## 配置文件

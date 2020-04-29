@@ -109,11 +109,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # 我的自定义
+export SBT_OPTS="-Dsbt.override.build.repos=true"
 export SHELL_DIR=~/Desktop/study-practice
 export WORK_PROJECT=~/Desktop/work/project
 alias list-myshell="bash ${SHELL_DIR}/my-shell/list-myshell.sh"
 alias clone-project="bash ${SHELL_DIR}/my-shell/clone-project.sh"
 alias update-study="bash ${SHELL_DIR}/my-shell/update-study.sh"
+alias kill-port="bash ${SHELL_DIR}/my-shell/stop-server.sh"
 alias ll='ls -la'
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
