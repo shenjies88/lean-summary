@@ -16,7 +16,7 @@ ssh-keygen
 ## 传送公钥匙至目标主机
 
 ```sh
- 目标主机ip
+ssh-copy-id -i ~/.ssh/id_rsa.pub <远程机器的用户名>@<远程机器的ip>
 ```
 
 ## 配置文件
