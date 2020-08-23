@@ -78,6 +78,7 @@ plugins=(
 	git
 	zsh-autosuggestions
 	zsh-syntax-highlighting
+        deno
 )
 
 source $ZSH/oh-my-zsh.sh
