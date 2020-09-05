@@ -123,3 +123,8 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 source ~/.iterm2_shell_integration.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/shenjies88/.sdkman"
+[[ -s "/Users/shenjies88/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shenjies88/.sdkman/bin/sdkman-init.sh"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
