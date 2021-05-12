@@ -47,8 +47,8 @@ server {
     server_name  $serverName;
 
     ssl on;
-    ssl_certificate      /etc/nginx/ssl/nav.asoco.com.cn/214904169970690.pem;
-    ssl_certificate_key  /etc/nginx/ssl/nav.asoco.com.cn/214904169970690.key;
+    ssl_certificate      ${ssl_path};
+    ssl_certificate_key  ${ssl_path_key};
 
     location / {
         add_header Cache-Control no-store;
